@@ -1,0 +1,13 @@
+#menu:has(#tab:hover) #tab:not(#tab:hover) {
+  opacity: 0.6;
+  filter: brightness(0.9);
+}
+
+#menu {
+  border: 1px solid #dbdbdb;
+}
+
+#tab {
+    transition: 300ms ease;
+    filter: brightness(1.2);
+}
