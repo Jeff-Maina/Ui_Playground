@@ -11,3 +11,6 @@
     transition: 300ms ease;
     filter: brightness(1.2);
 }
+.cursor-screen{
+  cursor: none !important;
+}

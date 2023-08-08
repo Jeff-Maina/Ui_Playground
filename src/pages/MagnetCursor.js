@@ -11,10 +11,7 @@ const MagnetCursor = () => {
         tranisiton={{
           duration: 1,
         }}
-        style={{
-          cursor: "none",
-        }}
-        className="w-screen h-screen"
+        className="w-screen h-screen cursor-screen"
       >
         <Cursor />
         <nav className="h-16 border flex items-center justify-between px-3">
@@ -23,7 +20,6 @@ const MagnetCursor = () => {
             onClick={() => {
               document.removeEventListener("mousemove", handleMouseMove);
             }}
-            style={{ cursor: "none" }}
           >
             <div data-stick="true" className="border border-zinc-400 p-2">
               <p className="font-openSans pointer-events-none">Back to menu</p>
@@ -142,7 +138,7 @@ const MagnetCursor = () => {
           <p className="font-openSans font-bold text-sm">07.07.2023</p>
         </div>
         <div className="absolute bottom-0 left-0 p-3 px-5">
-          <p className="font-openSans font-bold  link" >Jeff</p>
+          <p className="font-openSans font-bold  link">Jeff</p>
         </div>
       </motion.main>
     </AnimatePresence>
@@ -152,72 +148,75 @@ const MagnetCursor = () => {
 const Cursor = () => {
   useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove);
+    document.querySelector("body").style.cursor = "none !important";
   }, []);
 
   const handleMouseMove = ({ pageX, pageY, target }) => {
-    let cursor = document.querySelector("#cursor");
-    let big_cursor = document.querySelector("#big-cursor");
+    const cursor = document.querySelector("#cursor");
+    const bigCursor = document.querySelector("#big-cursor");
+
+    const cursorKeyframes = {
+      opacity: 1,
+      transform: `translate(${pageX - 4}px, ${pageY - 4}px)`,
+    };
+
+    let animationConfig = {
+      duration: 10,
+      fill: "forwards",
+    };
+
+    cursor.animate(cursorKeyframes, animationConfig);
 
     if (target.getAttribute("data-stick") == "true") {
-      const cursorKeyframes = {
-        opacity: 1,
-
-        transform: `translate(${pageX - 4}px, ${pageY - 4}px)`,
-      };
-
-      cursor.animate(cursorKeyframes, {
-        duration: 10,
-        fill: "forwards",
-      });
-
-      let bounds = target.getBoundingClientRect();
-      let { top, left, height, width } = bounds;
+      const bounds = target.getBoundingClientRect();
+      const { top, left, height, width } = bounds;
 
       const computedStyle = window.getComputedStyle(target);
       const borderRadius = computedStyle.borderRadius;
 
-      const bigcursorKeyframes = {
+      const bigCursorKeyframes = {
         opacity: 1,
-
         top: `${top}px`,
         left: `${left}px`,
         height: `${height}px`,
         width: `${width}px`,
-        borderRadius: `${borderRadius}`,
-        borderWidth: `3px`,
+        borderRadius: borderRadius,
+        borderWidth: `2px`,
       };
 
-      big_cursor.animate(bigcursorKeyframes, {
-        duration: 400,
+      animationConfig = {
+        duration: 500,
         fill: "forwards",
-      });
-    } else {
-      const cursorKeyframes = {
-        opacity: 1,
-
-        transform: `translate(${pageX - 4}px, ${pageY - 4}px)`,
       };
-
-      const bigcursorKeyframes = {
+      bigCursor.animate(bigCursorKeyframes, animationConfig);
+    } else {
+      const bigCursorKeyframes = {
         opacity: 1,
         top: `${pageY - 30}px`,
         left: `${pageX - 30}px`,
         width: `60px`,
         height: `60px`,
-        borderRadius: `50%`,
-        borderWidth: `1px`,
+        borderWidth: `2px`,
       };
 
-      big_cursor.animate(bigcursorKeyframes, {
+      animationConfig = {
         duration: 400,
         fill: "forwards",
-        ease: "ease",
-      });
+        easing: "ease",
+      };
 
-      cursor.animate(cursorKeyframes, {
-        duration: 10,
+      const slowBorderRadiusAnimationConfig = {
+        duration: 100, // Adjust this duration as needed
         fill: "forwards",
-      });
+      };
+
+      // Animate the border radius with a slower duration
+      bigCursor.animate(
+        { borderRadius: "50%" },
+        slowBorderRadiusAnimationConfig
+      );
+
+      bigCursor.animate(bigCursorKeyframes, animationConfig);
     }
   };
 
@@ -229,7 +228,7 @@ const Cursor = () => {
       ></div>
       <div
         id="big-cursor"
-        className="big-cursor fixed w-20 h-20 rounded-full border border-[#444] pointer-events-none z-50 opacity-0"
+        className="big-cursor fixed w-20 h-20 rounded-full border-2 border-[#444] pointer-events-none z-50 opacity-0"
       ></div>
     </>
   );

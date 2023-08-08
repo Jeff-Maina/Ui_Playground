@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "ivySemiBold": "Ivy Semibold",
+        "avant": "Avant",
         "openSans": "Open Sans",
       },
     },

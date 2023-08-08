@@ -8,7 +8,10 @@ import { AnimatePresence, motion } from "framer-motion";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const pages = [{ pageName: "Magnetic Custom Cursor", link: "/MagnetCursor" }];
+  const pages = [
+    { pageName: "Magnetic cursor effect", link: "/MagnetCursor" },
+    { pageName: "Mask cursor effect", link: "/MaskCursorEffect" },
+  ];
 
   return (
     <AnimatePresence>
