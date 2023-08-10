@@ -9,8 +9,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const pages = [
-    { pageName: "Magnetic cursor effect", link: "/MagnetCursor" },
-    { pageName: "Mask cursor effect", link: "/MaskCursorEffect" },
+    {
+      pageName: "Magnetic cursor effect",
+      link: "/MagnetCursor",
+      type: "internal",
+    },
+    {
+      pageName: "Mask cursor effect",
+      link: "/MaskCursorEffect",
+      type: "internal",
+    },
+    {
+      pageName: "Framer playground",
+      link: "https://framer-playground-rho.vercel.app/",
+      type: "external",
+    },
   ];
 
   return (
@@ -26,9 +39,9 @@ export default function Home() {
         <FancyCursor />
         <section className="w-full h-[40vh]"></section>
         <section className="min-w-[400px] w-3/4 flex flex-col gap-10 justify-self-center">
-          {pages.map((page) => {
-            return (
-              <Link href={`/${page.link}`}>
+          {pages.map((page) =>
+            page.type === "internal" ? (
+              <Link key={page.link} href={`/${page.link}`}>
                 <div
                   data-hover="true"
                   className="w-full h-14 component flex items-center"
@@ -41,8 +54,22 @@ export default function Home() {
                   </h1>
                 </div>
               </Link>
-            );
-          })}
+            ) : (
+              <a key={page.link} href={`${page.link}`}>
+                <div
+                  data-hover="true"
+                  className="w-full h-14 component flex items-center"
+                >
+                  <h1 className="text-[40px] absolute pointer-events-none font-openSans font-black text-[#222] active-h1">
+                    {page.pageName}
+                  </h1>
+                  <h1 className="text-[40px] font-openSans font-black text-[#222] absolute pointer-events-none hidden-h1">
+                    {page.pageName}
+                  </h1>
+                </div>
+              </a>
+            )
+          )}
         </section>
       </motion.main>
     </AnimatePresence>

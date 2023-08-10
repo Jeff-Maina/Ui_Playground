@@ -81,7 +81,7 @@ const MaskCursorEffect = () => {
             onMouseLeave={() => {
               setIsHovering(false);
             }}
-            className="text-[#b7ab98] font-avant xl:text-[89px] text-[60px] tracking-tighter font-black md:max-w-[90%] px-4 md:px-0"
+            className="text-[#b7ab98] font-avant xl:text-[89px] text-[60px] tracking-tighter font-black md:max-w-[90%] px-4 md:px-0 py-10"
           >
             Être ou ne pas être, telle est la question.
           </p>
@@ -102,7 +102,7 @@ const MaskCursorEffect = () => {
           transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
           className="w-screen h-screen flex items-center justify-center  top-0 left-0 leading-[79px] absolute mask pointer-events-none"
         >
-          <p className="font-avant xl:text-[89px] text-[60px] font-black md:max-w-[90%] px-4 md:px-0 tracking-tighter">
+          <p className="font-avant xl:text-[89px] text-[60px] font-black md:max-w-[90%] px-4 md:px-0 tracking-tighter py-10">
             To be or not to be, that is the question.
           </p>
           <div className="absolute bottom-0 right-0 p-3 px-5">
