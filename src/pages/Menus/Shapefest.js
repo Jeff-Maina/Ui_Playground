@@ -5,6 +5,15 @@ import { motion } from "framer-motion";
 
 const ShapeFest = () => {
   const [isMenuActive, setMenuActive] = useState(false);
+  const [isAnimationInProgress, setAnimationInProgress] = useState(false);
+
+  const handleClick = () => {
+    setAnimationInProgress(true);
+    setTimeout(() => {
+      setAnimationInProgress(false);
+    }, 1200);
+    setMenuActive(!isMenuActive);
+  };
 
   return (
     <main
@@ -50,17 +59,17 @@ const ShapeFest = () => {
             id={styles.mask}
             className="absolute w-[400vh] h-[400vw] bg-[#f9f6e7] top-2/4 -translate-y-2/4 left-2/4 -translate-x-2/4 pointer-events-none"
           ></motion.div>
-          <div
-            className="relative h-[30px] bg-[#ff5252] aspect-square rounded-full cursor-pointer hover:h-[40px] transition-all ease duration-300"
-            onClick={() => {
-              setMenuActive(!isMenuActive);
-            }}
+          <button
+            disabled={isAnimationInProgress}
+            className="relative h-[30px] bg-[#ff5252] aspect-square rounded-full cursor-pointer hover:h-[40px] transition-all ease duration-300 menu-btn"
+            onClick={handleClick}
           >
             {!isMenuActive ? (
               <div className="w-full h-full flex items-center justify-center gap-[2px] px-1">
                 {[...Array(3).keys()].map((dot, index) => {
                   return (
                     <motion.div
+                      key={index}
                       initial={{ scale: 0 }}
                       animate={{
                         scale: !isMenuActive ? 1 : 0,
@@ -70,7 +79,7 @@ const ShapeFest = () => {
                           type: "spring",
                           duration: 1,
                           delay: 0.05 * index + 0.2,
-                        }
+                        },
                       }}
                       className="h-1 aspect-square bg-[#f9f6e7] rounded-full"
                     ></motion.div>
@@ -105,7 +114,7 @@ const ShapeFest = () => {
                 </div>
               </div>
             )}
-          </div>
+          </button>
         </div>
       </nav>
     </main>
