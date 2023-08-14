@@ -11,6 +11,7 @@ module.exports = {
         "avant": "Avant",
         "openSans": "Open Sans",
         "bebas": "Bebas Neue",
+        "neueLight": "NeueMachina Light",
       },
     },
   },

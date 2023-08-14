@@ -25,8 +25,13 @@ export default function Home() {
       type: "external",
     },
     {
-      pageName: '"Column drop" navigation menu',
+      pageName: "Column drop navigation menu",
       link: "/Menus/ColumnDrop",
+      type: "internal",
+    },
+    {
+      pageName: "Shapefarm navigation menu",
+      link: "/Menus/Shapefest",
       type: "internal",
     },
   ];
@@ -44,7 +49,7 @@ export default function Home() {
         <FancyCursor />
         <section className="lg:h-[40vh] h-[20vh] max-w-7xl w-[90%]  justify-center flex flex-col">
           <h1 className="font-openSans text-4xl font-black">UI Playground</h1>
-          <p className="font-openSans text-lg">
+          <p className="font-openSans text-lg mt-5">
             A collection of recreations and ui concepts
           </p>
         </section>
