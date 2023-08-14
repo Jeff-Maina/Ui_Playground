@@ -24,6 +24,11 @@ export default function Home() {
       link: "https://framer-playground-rho.vercel.app/",
       type: "external",
     },
+    {
+      pageName: "\"Column drop\" navigation menu",
+      link: "/Menus/ColumnDrop",
+      type: "internal"
+    }
   ];
 
   return (
@@ -37,8 +42,11 @@ export default function Home() {
         className="w-screen min-h-screen flex flex-col items-center"
       >
         <FancyCursor />
-        <section className="w-full h-[40vh]"></section>
-        <section className="min-w-[400px] w-3/4 flex flex-col gap-10 justify-self-center">
+        <section className="w-full h-[40vh] max-w-7xl justify-center flex flex-col">
+          <h1 className="font-openSans text-4xl font-black">UI Playground</h1>
+          <p className="font-openSans text-lg">A collection of recreations and ui concepts</p>
+        </section>
+        <section className="min-w-[400px] max-w-7xl w-3/4 flex flex-col gap-10 justify-self-center">
           {pages.map((page) =>
             page.type === "internal" ? (
               <Link key={page.link} href={`/${page.link}`}>

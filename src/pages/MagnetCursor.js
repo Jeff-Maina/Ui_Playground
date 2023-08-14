@@ -182,6 +182,7 @@ const Cursor = () => {
         width: `${width}px`,
         borderRadius: borderRadius,
         borderWidth: `2px`,
+        borderColor: "#000",
       };
 
       animationConfig = {
@@ -200,7 +201,7 @@ const Cursor = () => {
       };
 
       animationConfig = {
-        duration: 400,
+        duration: 600,
         fill: "forwards",
         easing: "ease",
       };
@@ -212,7 +213,7 @@ const Cursor = () => {
 
       // Animate the border radius with a slower duration
       bigCursor.animate(
-        { borderRadius: "50%" },
+        { borderRadius: "50%", borderColor: "#cdcdcd" },
         slowBorderRadiusAnimationConfig
       );
 
@@ -228,7 +229,7 @@ const Cursor = () => {
       ></div>
       <div
         id="big-cursor"
-        className="big-cursor fixed w-20 h-20 rounded-full border-2 border-[#444] pointer-events-none z-50 opacity-0"
+        className="big-cursor fixed w-20 h-20 rounded-full border-2 border-[#cdcdcd] pointer-events-none z-50 opacity-0"
       ></div>
     </>
   );

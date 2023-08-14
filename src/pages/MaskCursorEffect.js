@@ -81,7 +81,7 @@ const MaskCursorEffect = () => {
             onMouseLeave={() => {
               setIsHovering(false);
             }}
-            className="text-[#b7ab98] font-avant xl:text-[89px] text-[60px] tracking-tighter font-black md:max-w-[90%] px-4 md:px-0 py-10"
+            className="text-[#b7ab98] font-avant xl:text-[89px] text-[60px] tracking-tighter font-black md:max-w-[90%] px-4 md:px-0 py-16"
           >
             Être ou ne pas être, telle est la question.
           </p>
