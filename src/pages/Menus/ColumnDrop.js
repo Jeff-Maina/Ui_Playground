@@ -3,7 +3,8 @@ import styles from "../../styles/ColumnDrop.module.css";
 import { useState } from "react";
 import Link from "next/link";
 
-const opacityVariants = {};
+import ComponentDetails from "@/components/ComponentDetails";
+
 
 const HamburgerMenu = ({ isMenuActive, setMenuActive }) => {
   return (
@@ -430,20 +431,13 @@ const ColumnDrop = () => {
         <span className="text-[#fff]">.</span>
       </div>
 
-      <div className="fixed text-white lg:text-[16px] text-sm p-2 px-4 flex gap-2 bottom-0 left-0">
-        <p>Recreation of the navbar on</p>
-        <a
-          href="https://ferro13.it/en"
-          className="text-blue-500 hover:underline"
-        >
-          wines made with love
-        </a>
-        <p>Website</p>
-      </div>
-
-      <div className="fixed text-white lg:text-[16px] text-sm p-2 flex gap-2 bottom-0 right-0 px-4">
-        <span>14.08.2023</span>
-      </div>
+      <ComponentDetails
+        font={"bebas"}
+        website={"Wines made with love        "}
+        websiteLink={"https://ferro13.it/en"}
+        date={"14.08.2023"}
+        textColor={"#fff"}
+      />
 
       <nav
         onClick={(e) => e.stopPropagation()}

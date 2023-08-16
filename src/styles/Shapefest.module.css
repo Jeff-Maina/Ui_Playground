@@ -3,7 +3,39 @@
   background-image: url("https://www.transparenttextures.com/patterns/noise-lines.png");
 }
 
+#menu {
+  transform-style: preserve-3d !important;
+}
 
-#mask{
-  /* clip-path: circle(10px at center); */
+#link {
+  cursor: pointer !important;
+  transition: all 0.4s;
+  transform-style: preserve-3d !important;
+}
+
+#link > #textOverflow > #primary,
+#link > #secondary {
+  transition: transform 450ms ease;
+   /* cubic-bezier(.58,.13,0,1.01); */
+  /* border: 1px solid #000; */
+}
+
+#link > #secondary {
+  transform: rotateX(-90deg) translateY(80%);
+  transform-origin: bottom;
+  /* opacity: 0; */
+}
+
+#link:hover > #secondary {
+  transform: rotateX(0deg);
+  /* opacity: 1; */
+}
+
+#link > #textOverflow > #primary{
+  transform-origin: top !important;
+}
+
+#link:hover > #textOverflow > #primary{
+  /* opacity: 0 !important; */
+  transform: rotateX(90deg) translateY(80%) !important;
 }

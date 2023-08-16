@@ -12,6 +12,9 @@ module.exports = {
         "openSans": "Open Sans",
         "bebas": "Bebas Neue",
         "neueLight": "NeueMachina Light",
+        "albra" : "Albra Bold",
+        "albraRegular" : "Albra Regular"
+
       },
     },
   },
