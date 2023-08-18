@@ -1,11 +1,9 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import FancyCursor from "@/components/cursorSqueeze";
-import { reactProductionProfiling } from "../../next.config";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-
-const inter = Inter({ subsets: ["latin"] });
+import Modal from "@/components/modal";
+import { useState } from "react";
 
 export default function Home() {
   const pages = [
@@ -13,29 +11,41 @@ export default function Home() {
       pageName: "Magnetic cursor effect",
       link: "/MagnetCursor",
       type: "internal",
+      image: "/Images/magneticCursor.jpeg",
+      bg: "#999",
     },
     {
       pageName: "Mask cursor effect",
       link: "/MaskCursorEffect",
       type: "internal",
+      image: "/Images/maskCursor.png",
+      bg: "red"
     },
     {
       pageName: "Framer playground",
       link: "https://framer-playground-rho.vercel.app/",
       type: "external",
+      image: "/Images/magneticCursor.jpeg",
+      bg: "#999"
     },
     {
       pageName: "Column drop navigation menu",
       link: "/Menus/ColumnDrop",
       type: "internal",
+      image: "/Images/columndrop.png",
+      bg: "#000"
     },
     {
       pageName: "Shapefarm navigation menu",
       link: "/Menus/Shapefest",
       type: "internal",
+      image: "/Images/shapefarm.png",
+      bg:"#fff"
     },
   ];
 
+  const [isModalActive, setModalActive] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <AnimatePresence>
       <motion.main
@@ -53,15 +63,29 @@ export default function Home() {
             A collection of recreations and ui concepts
           </p>
         </section>
-        <section className="min-w-[400px] max-w-7xl w-[90%] flex flex-col gap-10 justify-self-center">
-          {pages.map((page) =>
+        <section
+          onMouseEnter={() => {
+            setModalActive(true);
+          }}
+          onMouseLeave={() => {
+            setModalActive(false);
+          }}
+          className="min-w-[400px] max-w-7xl w-[90%] flex flex-col gap-10 justify-self-center relative"
+        >
+          <Modal
+            isModalActive={isModalActive}
+            pages={pages}
+            activeIndex={activeIndex}
+          />
+          {pages.map((page, index) =>
             page.type === "internal" ? (
-              <Link key={page.link} href={`/${page.link}`}>
+              <Link key={index} href={`${page.link}`}>
                 <div
                   data-hover="true"
+                  onMouseEnter={() => setActiveIndex(index)}
                   className="w-full h-14 component flex items-center"
                 >
-                  <h1 className="md:text-[40px] text-[30px] truncate max-w-full absolute pointer-events-none font-openSans font-black text-[#222] active-h1">
+                  <h1 className="md:text-[40px] text-[30px] truncate max-w-full absolute pointer-events-none font-openSans font-black text-[#444] active-h1">
                     {page.pageName}
                   </h1>
                   <h1 className="md:text-[40px] text-[30px] truncate max-w-full font-openSans font-black text-[#222] absolute pointer-events-none hidden-h1">
@@ -72,10 +96,11 @@ export default function Home() {
             ) : (
               <a key={page.link} href={`${page.link}`}>
                 <div
+                  onMouseEnter={() => setActiveIndex(index)}
                   data-hover="true"
                   className="w-full h-14 component flex items-center"
                 >
-                  <h1 className="md:text-[40px] text-[30px] truncate max-w-full absolute pointer-events-none font-openSans font-black text-[#222] active-h1">
+                  <h1 className="md:text-[40px] text-[30px] truncate max-w-full absolute pointer-events-none font-openSans font-black text-[#444] active-h1">
                     {page.pageName}
                   </h1>
                   <h1 className="md:text-[40px] text-[30px] truncate max-w-full font-openSans font-black text-[#222] absolute pointer-events-none hidden-h1">

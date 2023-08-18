@@ -13,8 +13,9 @@ module.exports = {
         "bebas": "Bebas Neue",
         "neueLight": "NeueMachina Light",
         "albra" : "Albra Bold",
-        "albraRegular" : "Albra Regular"
-
+        "albraRegular" : "Albra Regular",
+        "miagra" : "Miagra",
+        "sharp" : "Sharp",
       },
     },
   },

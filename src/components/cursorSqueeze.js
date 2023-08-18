@@ -10,7 +10,7 @@ const FancyCursor = () => {
 
     if (targetElement.getAttribute("data-hover") === "true") {
       cursorCircle.classList.add("hovering");
-    } else if (cursorCircle ) {
+    } else if (cursorCircle) {
       cursorCircle.classList.remove("hovering");
     }
   };
@@ -70,6 +70,18 @@ const FancyCursor = () => {
   return (
     <div id="cursor">
       <div className="cursor__circle"></div>
+      <div className="h-10  aspect-square arrow-link absolute top-0 left-0 -translate-x-2/4 -translate-y-2/4 grid place-items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          id="upper-right-arrow"
+          height="44"
+          width="44"
+          fill="#9c9c06a2"
+        >
+          <path d="M17.92,6.62a1,1,0,0,0-.54-.54A1,1,0,0,0,17,6H7A1,1,0,0,0,7,8h7.59l-8.3,8.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L16,9.41V17a1,1,0,0,0,2,0V7A1,1,0,0,0,17.92,6.62Z"></path>
+        </svg>{" "}
+      </div>
     </div>
   );
 };

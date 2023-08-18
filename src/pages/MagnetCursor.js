@@ -156,7 +156,7 @@ const Cursor = () => {
     const bigCursor = document.querySelector("#big-cursor");
 
     const cursorKeyframes = {
-      opacity: 1,
+      opacity: 0,
       transform: `translate(${pageX - 4}px, ${pageY - 4}px)`,
     };
 
@@ -182,21 +182,21 @@ const Cursor = () => {
         width: `${width}px`,
         borderRadius: borderRadius,
         borderWidth: `2px`,
-        borderColor: "#000",
+        borderColor: "#000"
       };
 
       animationConfig = {
-        duration: 500,
+        duration: 300,
         fill: "forwards",
       };
       bigCursor.animate(bigCursorKeyframes, animationConfig);
     } else {
       const bigCursorKeyframes = {
         opacity: 1,
-        top: `${pageY - 30}px`,
-        left: `${pageX - 30}px`,
-        width: `60px`,
-        height: `60px`,
+        top: `${pageY - 2.5}px`,
+        left: `${pageX - 2.5}px`,
+        width: `5px`,
+        height: `5px`,
         borderWidth: `2px`,
       };
 
@@ -213,7 +213,7 @@ const Cursor = () => {
 
       // Animate the border radius with a slower duration
       bigCursor.animate(
-        { borderRadius: "50%", borderColor: "#cdcdcd" },
+        { borderRadius: "50%", borderColor: "#000" },
         slowBorderRadiusAnimationConfig
       );
 
@@ -229,7 +229,7 @@ const Cursor = () => {
       ></div>
       <div
         id="big-cursor"
-        className="big-cursor fixed w-20 h-20 rounded-full border-2 border-[#cdcdcd] pointer-events-none z-50 opacity-0"
+        className="big-cursor fixed w-2 h-2 rounded-full border-2 border-[#000000] pointer-events-none z-50 opacity-0"
       ></div>
     </>
   );

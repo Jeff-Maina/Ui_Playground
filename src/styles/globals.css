@@ -27,6 +27,15 @@
   font-family: "Albra Regular";
   src: url("/Fonts/AlbraRegular.otf");
 }
+@font-face {
+  font-family: "Miagra";
+  src: url("/Fonts/Migra.woff2");
+}
+
+@font-face {
+  font-family: "Sharp";
+  src: url("/Fonts/SharpGrotesk.otf");
+}
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
@@ -51,15 +60,23 @@ body {
   pointer-events: none;
   will-change: transform;
   overflow: visible;
+  /* display: grid; */
+  /* place-items: center; */
 }
 
 .hovering {
-  height: 100px !important;
-  width: 100px !important;
+  height: 120px !important;
+  width: 120px !important;
   background-color: rgba(255, 255, 0, 0.358);
   border: solid 1px rgba(200, 200, 9, 0.637) !important;
 }
 
+.hovering ~ .arrow-link {
+  display: grid;
+}
+.arrow-link {
+  display: none;
+}
 .cursor__circle {
   width: 64px;
   height: 64px;
@@ -124,4 +141,37 @@ body {
 
 .link:hover::after {
   width: 100%;
+}
+
+.pod[data-status="inactive"] {
+  display: none;
+}
+
+.pod[data-status="active"] {
+  display: block;
+}
+
+.pod[data-status="active"] > img {
+  animation: imgBounce 1s 1 forwards;
+}
+
+@keyframes imgBounce {
+  0% {
+    transform: translate(0, 100%);
+  }
+  50% {
+    transform: translate(0, 0%);
+  }
+  100% {
+    transform: translate(0%, 100%);
+  }
+}
+
+@keyframes imgOut {
+  0% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0%);
+  }
 }
