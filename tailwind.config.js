@@ -16,6 +16,8 @@ module.exports = {
         "albraRegular" : "Albra Regular",
         "miagra" : "Miagra",
         "sharp" : "Sharp",
+        "pragma": "Pragma",
+        "avenir" : "Avenir"
       },
     },
   },

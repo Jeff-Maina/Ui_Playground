@@ -1,10 +1,10 @@
-const ComponentDetails = ({ font, date, website, websiteLink, textColor }) => {
+const ComponentDetails = ({ font, date, website, websiteLink, textColor,componentType }) => {
   return (
     <div className={`font-${font}`}>
       <div
         className={`fixed text-[${textColor}] lg:text-[16px] text-sm p-2 px-4 flex gap-2 bottom-0 left-0`}
       >
-        <p>Recreation of the navmenu on</p>
+        <p>Recreation of the {componentType} on</p>
         <a
           href={websiteLink}
           target="_blank"
@@ -15,7 +15,7 @@ const ComponentDetails = ({ font, date, website, websiteLink, textColor }) => {
         <p>Website</p>
       </div>
 
-      <div className={`fixed text-[${textColor}] lg:text-[16px] text-sm p-2 flex gap-2 bottom-0 right-0 px-4 font-albraRegular`}>
+      <div className={`fixed text-[${textColor}] lg:text-[16px] text-sm p-2 flex gap-2 bottom-0 right-0 px-4`}>
         <span>{date}</span>
       </div>
     </div>

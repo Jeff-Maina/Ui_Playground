@@ -5,7 +5,6 @@ import Link from "next/link";
 
 import ComponentDetails from "@/components/ComponentDetails";
 
-
 const HamburgerMenu = ({ isMenuActive, setMenuActive }) => {
   return (
     <div
@@ -437,6 +436,7 @@ const ColumnDrop = () => {
         websiteLink={"https://ferro13.it/en"}
         date={"14.08.2023"}
         textColor={"#fff"}
+        componentType={"Nav menu"}
       />
 
       <nav

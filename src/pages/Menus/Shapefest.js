@@ -274,6 +274,8 @@ const ShapeFest = () => {
         websiteLink={"https://shapefarm.net/"}
         date={"16.08.2023"}
         textColor={"#000"}
+        componentType={"Nav menu"}
+
       />
     </main>
   );

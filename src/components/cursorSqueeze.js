@@ -15,9 +15,14 @@ const FancyCursor = () => {
     }
   };
 
-  if (typeof document !== "undefined") {
-    window.addEventListener("mousemove", updateCoordinates);
-  }
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      window.addEventListener("mousemove", updateCoordinates);
+    }
+    return () => {
+      window.removeEventListener("mousemove", updateCoordinates);
+    };
+  }, []);
 
   const mouse = { x: -100, y: -100 }; // mouse pointer's coordinates
   const pos = { x: 0, y: 0 }; // cursor's coordinates

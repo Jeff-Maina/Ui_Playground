@@ -19,29 +19,43 @@ export default function Home() {
       link: "/MaskCursorEffect",
       type: "internal",
       image: "/Images/maskCursor.png",
-      bg: "red"
+      bg: "red",
     },
     {
       pageName: "Framer playground",
       link: "https://framer-playground-rho.vercel.app/",
       type: "external",
       image: "/Images/magneticCursor.jpeg",
-      bg: "#999"
+      bg: "#999",
     },
     {
       pageName: "Column drop navigation menu",
       link: "/Menus/ColumnDrop",
       type: "internal",
       image: "/Images/columndrop.png",
-      bg: "#000"
+      bg: "#000",
     },
     {
       pageName: "Shapefarm navigation menu",
       link: "/Menus/Shapefest",
       type: "internal",
       image: "/Images/shapefarm.png",
-      bg:"#fff"
+      bg: "#fff",
     },
+    {
+      pageName: "QINO navigation menu",
+      link: "/Menus/QINO",
+      type: "internal",
+      image: "/Images/qino.png",
+      bg: "green",
+    },
+    {
+      pageName: "eumray hover image effect",
+      link: "/Hover/eumray",
+      type: "internal",
+      image: "/Images/eumray.png",
+      bg: "#282828",
+    }
   ];
 
   const [isModalActive, setModalActive] = useState(false);
@@ -54,7 +68,7 @@ export default function Home() {
         tranisiton={{
           duration: 1,
         }}
-        className="w-screen min-h-screen flex flex-col items-center"
+        className="w-screen min-h-screen flex flex-col items-center pb-20"
       >
         <FancyCursor />
         <section className="lg:h-[40vh] h-[20vh] max-w-7xl w-[90%]  justify-center flex flex-col">

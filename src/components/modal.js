@@ -15,8 +15,6 @@ const Modal = ({ pages, activeIndex, isModalActive }) => {
 
   let ref = useRef(null);
 
-  let mouseX = useMotionValue(0);
-  let mouseY = useMotionValue(0);
 
   const moveModal = ({ clientX, clientY }) => {
     // const moveContainerX = gsap.quickTo(ref.current, "left", {
@@ -51,7 +49,7 @@ const Modal = ({ pages, activeIndex, isModalActive }) => {
       variants={modalVariants}
       initial="initial"
       animate={isModalActive ? "open" : "closed"}
-      className="absolute md:w-60 md:h-72 w-44 h-60 z-50 overflow-hidden pointer-events-none right-0"
+      className="absolute md:w-60 md:h-72 lg:w-80 lg:h-96 w-44 h-60 z-50 overflow-hidden pointer-events-none right-0"
     >
       <motion.div
         initial={{ top: "0%" }}
