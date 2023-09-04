@@ -55,7 +55,7 @@ export default function Home() {
       type: "internal",
       image: "/Images/eumray.png",
       bg: "#282828",
-    }
+    },
   ];
 
   const [isModalActive, setModalActive] = useState(false);
@@ -70,7 +70,7 @@ export default function Home() {
         }}
         className="w-screen min-h-screen flex flex-col items-center pb-20"
       >
-        <FancyCursor />
+        {/* <FancyCursor /> */}
         <section className="lg:h-[40vh] h-[20vh] max-w-7xl w-[90%]  justify-center flex flex-col">
           <h1 className="font-openSans text-4xl font-black">UI Playground</h1>
           <p className="font-openSans text-lg mt-5">
